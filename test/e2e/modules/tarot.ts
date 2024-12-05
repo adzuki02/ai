@@ -22,7 +22,7 @@ describe('tarot モジュール', () => {
 		const res = await post(user, { text: `@${ai.username} タロット` });
 		await sleep(500);
 		const children = await api('notes/children', { noteId: res.id });
-		expect(children.body[0].cw).toBe('私が今日のあなたの運勢を占いました...');
+		expect(children.body[0].cw).toBe('カードを1枚引きました...');
 		expect(children.body[0].text?.includes('正位置') || children.body[0].text?.includes('逆位置')).toBe(true);
 	});
 });
