@@ -88,7 +88,10 @@ export function generateConfig(config: Partial<Config>): Config {
 		notingEnabled: true,
 		serverMonitoring: true,
 		mecab: '/usr/bin/mecab',
-		mecabDic: '/var/lib/mecab/dic/juman-utf8/'
+		mecabDic: '/var/lib/mecab/dic/juman-utf8/',
+		tarot: {
+			major: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+		}
 	} as Config, config);
 
 	merged.host = new URL(merged.host).origin;
