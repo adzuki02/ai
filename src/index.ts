@@ -14,7 +14,6 @@ import pkg from '../package.json' assert { type: 'json' };
 import CoreModule from './modules/core/index.js';
 import TalkModule from './modules/talk/index.js';
 import BirthdayModule from './modules/birthday/index.js';
-import ReversiModule from './modules/reversi/index.js';
 import PingModule from './modules/ping/index.js';
 import EmojiModule from './modules/emoji/index.js';
 import EmojiReactModule from './modules/emoji-react/index.js';
@@ -29,7 +28,6 @@ import ServerModule from './modules/server/index.js';
 import FollowModule from './modules/follow/index.js';
 import ValentineModule from './modules/valentine/index.js';
 import MazeModule from './modules/maze/index.js';
-import ChartModule from './modules/chart/index.js';
 import SleepReportModule from './modules/sleep-report/index.js';
 import NotingModule from './modules/noting/index.js';
 import PollModule from './modules/poll/index.js';
@@ -86,7 +84,6 @@ promiseRetry(retry => {
 		new FortuneModule(),
 		new GuessingGameModule(),
 		new KazutoriModule(),
-		...(config.reversiEnabled ? [new ReversiModule()] : []),
 		new TimerModule(),
 		new DiceModule(),
 		new TalkModule(),
@@ -98,7 +95,6 @@ promiseRetry(retry => {
 		new ValentineModule(),
 		...(config.keywordEnabled ? [new KeywordModule()] : []),
 		...(config.mazeDisabled === true ? [] : [new MazeModule()]),
-		...(config.chartEnabled ? [new ChartModule()] : []),
 		new SleepReportModule(),
 		...(config.notingEnabled ? [new NotingModule()] : []),
 		...(config.pollDisabled === true ? [] : [new PollModule()]),

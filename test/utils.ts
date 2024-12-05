@@ -85,9 +85,7 @@ export function generateConfig(config: Partial<Config>): Config {
 		host: 'http://localhost:3000',
 		i: 'xxxxxxxx',
 		keywordEnabled: true,
-		reversiEnabled: true,
 		notingEnabled: true,
-		chartEnabled: true,
 		serverMonitoring: true,
 		mecab: '/usr/bin/mecab',
 		mecabDic: '/var/lib/mecab/dic/juman-utf8/'

@@ -7,9 +7,7 @@ export type Config = {
 	apiUrl: string;
 	restrictCommunication?: boolean;
 	keywordEnabled: boolean;
-	reversiEnabled: boolean;
 	notingEnabled: boolean;
-	chartEnabled: boolean;
 	serverMonitoring: boolean;
 	checkEmojisEnabled?: boolean;
 	checkEmojisAtOnce?: boolean;
