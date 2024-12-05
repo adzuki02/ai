@@ -14,7 +14,6 @@ import pkg from '../package.json' assert { type: 'json' };
 import CoreModule from './modules/core/index.js';
 import TalkModule from './modules/talk/index.js';
 import BirthdayModule from './modules/birthday/index.js';
-import ReversiModule from './modules/reversi/index.js';
 import PingModule from './modules/ping/index.js';
 import EmojiModule from './modules/emoji/index.js';
 import EmojiReactModule from './modules/emoji-react/index.js';
@@ -85,7 +84,6 @@ promiseRetry(retry => {
 		new FortuneModule(),
 		new GuessingGameModule(),
 		new KazutoriModule(),
-		...(config.reversiEnabled ? [new ReversiModule()] : []),
 		new TimerModule(),
 		new DiceModule(),
 		new TalkModule(),

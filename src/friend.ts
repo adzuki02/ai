@@ -18,7 +18,6 @@ export type FriendDoc = {
 	perModulesData?: Record<IModule['name'], Record<string, Serializable>>;
 	married?: boolean;
 	transferCode?: string;
-	reversiStrength?: number | null;
 };
 
 function formatUser(value: FriendDocUser & Partial<UserLite | UserDetailed>): FriendDocUser {
@@ -168,20 +167,6 @@ export default class Friend {
 	@bindThis
 	public updateName(name: string) {
 		this.doc.name = name;
-		this.save();
-	}
-
-	@bindThis
-	public updateReversiStrength(strength: number | null) {
-		if (strength == null) {
-			this.doc.reversiStrength = null;
-			this.save();
-			return;
-		}
-
-		if (strength < 0) strength = 0;
-		if (strength > 5) strength = 5;
-		this.doc.reversiStrength = strength;
 		this.save();
 	}
 

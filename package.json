@@ -26,7 +26,6 @@
 		"lokijs": "1.5.12",
 		"memory-streams": "0.1.3",
 		"misskey-js": "github:adzukimame/misskey-js#2024.10.1-mame.7",
-		"misskey-reversi": "0.0.5",
 		"nodemon": "3.1.7",
 		"promise-retry": "2.0.1",
 		"random-seed": "0.3.0",
