@@ -87,7 +87,6 @@ export function generateConfig(config: Partial<Config>): Config {
 		keywordEnabled: true,
 		reversiEnabled: true,
 		notingEnabled: true,
-		chartEnabled: true,
 		serverMonitoring: true,
 		mecab: '/usr/bin/mecab',
 		mecabDic: '/var/lib/mecab/dic/juman-utf8/'

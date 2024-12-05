@@ -9,7 +9,6 @@ export type Config = {
 	keywordEnabled: boolean;
 	reversiEnabled: boolean;
 	notingEnabled: boolean;
-	chartEnabled: boolean;
 	serverMonitoring: boolean;
 	checkEmojisEnabled?: boolean;
 	checkEmojisAtOnce?: boolean;

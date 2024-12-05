@@ -29,7 +29,6 @@ import ServerModule from './modules/server/index.js';
 import FollowModule from './modules/follow/index.js';
 import ValentineModule from './modules/valentine/index.js';
 import MazeModule from './modules/maze/index.js';
-import ChartModule from './modules/chart/index.js';
 import SleepReportModule from './modules/sleep-report/index.js';
 import NotingModule from './modules/noting/index.js';
 import PollModule from './modules/poll/index.js';
@@ -98,7 +97,6 @@ promiseRetry(retry => {
 		new ValentineModule(),
 		...(config.keywordEnabled ? [new KeywordModule()] : []),
 		...(config.mazeDisabled === true ? [] : [new MazeModule()]),
-		...(config.chartEnabled ? [new ChartModule()] : []),
 		new SleepReportModule(),
 		...(config.notingEnabled ? [new NotingModule()] : []),
 		...(config.pollDisabled === true ? [] : [new PollModule()]),

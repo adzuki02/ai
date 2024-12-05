@@ -5,7 +5,6 @@
 	"restrictCommunication": false,
 	"notingEnabled": true,
 	"keywordEnabled": true,
-	"chartEnabled": true,
 	"reversiEnabled": true,
 	"serverMonitoring": true,
 	"checkEmojisEnabled": true,
