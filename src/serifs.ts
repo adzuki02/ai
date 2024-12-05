@@ -259,6 +259,41 @@ export default {
 	},
 
 	/**
+	 * タロット
+	 */
+	tarot: {
+		cw: (count: number) => `カードを${count}枚引きました...`,
+		notProperlyConfigured: 'まだ準備ができてないです…',
+		majorArcanaName: (number: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21, isMarseilles: boolean = false) => {
+			switch (number) {
+				case 0: return '愚者';
+				case 1: return '魔術師';
+				case 2: return '女教皇';
+				case 3: return '女帝';
+				case 4: return '皇帝';
+				case 5: return '教皇';
+				case 6: return '恋人';
+				case 7: return '戦車';
+				case 8: return isMarseilles ? '正義' : '力';
+				case 9: return '隠者';
+				case 10: return '運命の輪';
+				case 11: return isMarseilles ? '力' : '正義';
+				case 12: return '吊るされた男';
+				case 13: return '死神';
+				case 14: return '節制';
+				case 15: return '悪魔';
+				case 16: return '塔';
+				case 17: return '星';
+				case 18: return '月';
+				case 19: return '太陽';
+				case 20: return '審判';
+				case 21: return '世界';
+			}
+		},
+		cardNameWithDirection: (cardName: string, isUpright: boolean) => `${isUpright ? '正' : '逆'}位置の「${cardName}」`
+	},
+
+	/**
 	 * タイマー
 	 */
 	timer: {
