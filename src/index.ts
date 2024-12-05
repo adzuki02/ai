@@ -21,7 +21,6 @@ import FortuneModule from './modules/fortune/index.js';
 import GuessingGameModule from './modules/guessing-game/index.js';
 import KazutoriModule from './modules/kazutori/index.js';
 import KeywordModule from './modules/keyword/index.js';
-import WelcomeModule from './modules/welcome/index.js';
 import TimerModule from './modules/timer/index.js';
 import DiceModule from './modules/dice/index.js';
 import ServerModule from './modules/server/index.js';
@@ -88,7 +87,6 @@ promiseRetry(retry => {
 		new DiceModule(),
 		new TalkModule(),
 		new PingModule(),
-		new WelcomeModule(),
 		...(config.serverMonitoring ? [new ServerModule()] : []),
 		new FollowModule(),
 		new BirthdayModule(),
