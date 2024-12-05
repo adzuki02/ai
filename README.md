@@ -11,7 +11,7 @@ Misskey用の日本語Botです。
 次にそのディレクトリに `config.json` を作成します。中身は次のようにします:
 ``` json
 {
-	"host": "https:// + あなたのインスタンスのURL (末尾の / は除く)",
+	"host": "https:// + あなたのサーバーのURL (末尾の / は除く)",
 	"i": "藍として動かしたいアカウントのアクセストークン",
 	"master": "管理者のユーザー名(オプション)",
 	"restrictCommunication": "制限モードを有効にする場合は true を入れる (無効にする場合は false)",
@@ -35,7 +35,7 @@ Misskey用の日本語Botです。
 （MeCabの設定、memoryDirについては触らないでください）
 ``` json
 {
-	"host": "https:// + あなたのインスタンスのURL (末尾の / は除く)",
+	"host": "https:// + あなたのサーバーのURL (末尾の / は除く)",
 	"i": "藍として動かしたいアカウントのアクセストークン",
 	"master": "管理者のユーザー名(オプション)",
 	"restrictCommunication": "制限モードを有効にする場合は true を入れる (無効にする場合は false)",
@@ -84,6 +84,3 @@ Misskey用の日本語Botです。
 
 ## ライセンス
 MIT
-
-## Awards
-<img src="./WorksOnMyMachine.png" alt="Works on my machine" height="120">
