@@ -16,6 +16,9 @@ export type Config = {
 	mecab?: string;
 	mecabDic?: string;
 	memoryDir?: string;
+	tarot?: {
+		major: string[];
+	};
 };
 
 import baseConfig from '../config.json' assert { type: 'json' };

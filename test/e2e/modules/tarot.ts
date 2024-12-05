@@ -4,9 +4,9 @@ import { describe, test, expect, beforeAll } from 'vitest';
 import { signup, post, api, sleep, generateConfig } from '../../utils';
 
 import 藍 from '../../../src/ai';
-import FortuneModule from '../../../src/modules/fortune/index';
+import FortuneModule from '../../../src/modules/tarot/index';
 
-describe('fortune モジュール', () => {
+describe('tarot モジュール', () => {
 	let ai: Awaited<ReturnType<typeof signup>>;
 	let user: Awaited<ReturnType<typeof signup>>;
 
@@ -19,11 +19,10 @@ describe('fortune モジュール', () => {
 	});
 
 	test('メンションに反応する', async () => {
-		const res = await post(user, { text: `@${ai.username} 占い` });
+		const res = await post(user, { text: `@${ai.username} タロット` });
 		await sleep(500);
 		const children = await api('notes/children', { noteId: res.id });
 		expect(children.body[0].cw).toBe('私が今日のあなたの運勢を占いました...');
-		expect(children.body[0].text?.includes('吉') || children.body[0].text?.includes('凶')).toBe(true);
-		expect(children.body[0].text?.includes('ラッキーアイテム')).toBe(true);
+		expect(children.body[0].text?.includes('正位置') || children.body[0].text?.includes('逆位置')).toBe(true);
 	});
 });

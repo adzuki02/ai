@@ -17,7 +17,7 @@ import BirthdayModule from './modules/birthday/index.js';
 import PingModule from './modules/ping/index.js';
 import EmojiModule from './modules/emoji/index.js';
 import EmojiReactModule from './modules/emoji-react/index.js';
-import FortuneModule from './modules/fortune/index.js';
+import TarotModule from './modules/tarot/index.js';
 import GuessingGameModule from './modules/guessing-game/index.js';
 import KazutoriModule from './modules/kazutori/index.js';
 import KeywordModule from './modules/keyword/index.js';
@@ -80,7 +80,7 @@ promiseRetry(retry => {
 		new CoreModule(),
 		new EmojiModule(),
 		new EmojiReactModule(),
-		new FortuneModule(),
+		new TarotModule(),
 		new GuessingGameModule(),
 		new KazutoriModule(),
 		new TimerModule(),
