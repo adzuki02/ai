@@ -33,7 +33,7 @@ describe('core モジュール', () => {
 		const transferRes = await post(user2, { text: `@${ai.username} 「${code}」` });
 		await sleep(500);
 		const transferChildren = await api('notes/children', { noteId: transferRes.id });
-		expect(transferChildren.body[0].text?.includes('おかえりなさい')).toBe(true);
+		expect(transferChildren.body[0].text?.includes('ん...おかえり')).toBe(true);
 	});
 
 	test('setName', async () => {
@@ -45,7 +45,7 @@ describe('core モジュール', () => {
 		const yesNo = await post(user, { replyId: children.body[0].id, text: 'はい' });
 		await sleep(500);
 		const yesNoChildren = await api('notes/children', { noteId: yesNo.id });
-		expect(yesNoChildren.body[0].text).toBe('わかりました。これからはあああああさんとお呼びしますね！');
+		expect(yesNoChildren.body[0].text).toBe('了解。これからはあああああさんって呼ぶよ');
 
 		const greet = await post(user, { text: `@${ai.username} こんにちは` });
 		await sleep(500);
