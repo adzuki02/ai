@@ -34,7 +34,7 @@ export default {
 		nadenade: {
 			normal: '😟',
 
-			hate1: '🤮'
+			hate: '🤮'
 		},
 
 		kawaii: {

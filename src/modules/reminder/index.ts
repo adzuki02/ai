@@ -125,7 +125,7 @@ export default class extends Module<ContextData, TimerData> {
 		if ((done || cancel) && isOneself) {
 			this.unsubscribeReply(key);
 			this.reminds.remove(remind);
-			msg.reply(done ? getSerif(serifs.reminder.done(msg.friend.name)) : serifs.reminder.cancel);
+			msg.reply(done ? getSerif(serifs.reminder.done) : serifs.reminder.cancel);
 			return;
 		} else if (isOneself === false) {
 			msg.reply(serifs.reminder.doneFromInvalidUser);

@@ -60,11 +60,6 @@ export default class extends Module {
 			//#endregion
 		};
 
-		// 末尾のエクスクラメーションマーク
-		const tension = (msg.text.match(/[！!]{2,}/g) || [''])
-			.sort((a, b) => a.length < b.length ? 1 : -1)[0]
-			.substr(1);
-
 		if (msg.includes(['こんにちは', 'こんにちわ'])) {
 			msg.reply(serifs.core.hello(msg.friend.name));
 			incLove();
@@ -78,7 +73,7 @@ export default class extends Module {
 		}
 
 		if (msg.includes(['おは', 'おっは', 'お早う'])) {
-			msg.reply(serifs.core.goodMorning(tension, msg.friend.name));
+			msg.reply(serifs.core.goodMorning(msg.friend.name));
 			incLove();
 			return true;
 		}
@@ -90,18 +85,13 @@ export default class extends Module {
 		}
 
 		if (msg.includes(['行ってくる', '行ってきます', 'いってくる', 'いってきます'])) {
-			msg.reply(
-				msg.friend.love >= 7 ? serifs.core.itterassyai.love(msg.friend.name) :
-				serifs.core.itterassyai.normal(msg.friend.name));
+			msg.reply(serifs.core.itterassyai(msg.friend.name));
 			incLove();
 			return true;
 		}
 
 		if (msg.includes(['ただいま'])) {
-			msg.reply(
-				msg.friend.love >= 15 ? serifs.core.okaeri.love2(msg.friend.name) :
-				msg.friend.love >= 7 ? getSerif(serifs.core.okaeri.love(msg.friend.name)) :
-				serifs.core.okaeri.normal(msg.friend.name));
+			msg.reply(serifs.core.okaeri(msg.friend.name));
 			incLove();
 			return true;
 		}
@@ -111,27 +101,9 @@ export default class extends Module {
 
 	@bindThis
 	private erait(msg: Message): boolean {
-		const match = msg.extractedText.match(/(.+?)た(から|ので)(褒|ほ)めて/);
-		if (match) {
-			msg.reply(getSerif(serifs.core.erait.specify(match[1], msg.friend.name)));
-			return true;
-		}
-
-		const match2 = msg.extractedText.match(/(.+?)る(から|ので)(褒|ほ)めて/);
-		if (match2) {
-			msg.reply(getSerif(serifs.core.erait.specify(match2[1], msg.friend.name)));
-			return true;
-		}
-
-		const match3 = msg.extractedText.match(/(.+?)だから(褒|ほ)めて/);
-		if (match3) {
-			msg.reply(getSerif(serifs.core.erait.specify(match3[1], msg.friend.name)));
-			return true;
-		}
-
 		if (!msg.includes(['褒めて', 'ほめて'])) return false;
 
-		msg.reply(getSerif(serifs.core.erait.general(msg.friend.name)));
+		msg.reply(getSerif(serifs.core.erait));
 
 		return true;
 	}
@@ -140,7 +112,7 @@ export default class extends Module {
 	private omedeto(msg: Message): boolean {
 		if (!msg.includes(['おめでと'])) return false;
 
-		msg.reply(serifs.core.omedeto(msg.friend.name));
+		msg.reply(getSerif(serifs.core.omedeto));
 
 		return true;
 	}
@@ -165,12 +137,7 @@ export default class extends Module {
 		//#endregion
 
 		msg.reply(getSerif(
-			msg.friend.love >= 10 ? serifs.core.nadenade.love3 :
-			msg.friend.love >= 5 ? serifs.core.nadenade.love2 :
-			msg.friend.love <= -15 ? serifs.core.nadenade.hate4 :
-			msg.friend.love <= -10 ? serifs.core.nadenade.hate3 :
-			msg.friend.love <= -5 ? serifs.core.nadenade.hate2 :
-			msg.friend.love <= -1 ? serifs.core.nadenade.hate1 :
+			msg.friend.love <= -1 ? serifs.core.nadenade.hate :
 			serifs.core.nadenade.normal
 		));
 
@@ -182,7 +149,6 @@ export default class extends Module {
 		if (!msg.includes(['かわいい', '可愛い'])) return false;
 
 		msg.reply(getSerif(
-			msg.friend.love >= 5 ? serifs.core.kawaii.love :
 			msg.friend.love <= -3 ? serifs.core.kawaii.hate :
 			serifs.core.kawaii.normal));
 
@@ -194,7 +160,7 @@ export default class extends Module {
 		if (!msg.or(['好き', 'すき'])) return false;
 
 		msg.reply(
-			msg.friend.love >= 5 ? (msg.friend.name ? serifs.core.suki.love(msg.friend.name) : serifs.core.suki.normal) :
+			msg.friend.love >= 5 ? (msg.friend.name ? serifs.core.suki.love : serifs.core.suki.normal) :
 			msg.friend.love <= -3 ? serifs.core.suki.hate :
 			serifs.core.suki.normal);
 
@@ -260,7 +226,7 @@ export default class extends Module {
 	private itai(msg: Message): boolean {
 		if (!msg.or(['痛い', 'いたい']) && !msg.extractedText.endsWith('痛い')) return false;
 
-		msg.reply(serifs.core.itai(msg.friend.name));
+		msg.reply(getSerif(serifs.core.itai));
 
 		return true;
 	}
@@ -269,10 +235,7 @@ export default class extends Module {
 	private ote(msg: Message): boolean {
 		if (!msg.or(['お手'])) return false;
 
-		msg.reply(
-			msg.friend.love >= 10 ? serifs.core.ote.love2 :
-			msg.friend.love >= 5 ? serifs.core.ote.love1 :
-			serifs.core.ote.normal);
+		msg.reply(serifs.core.ote);
 
 		return true;
 	}

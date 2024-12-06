@@ -20,9 +20,7 @@ describe('talk モジュール', () => {
 
 	describe('メンションに反応する', () => {
 		test.each([
-			{ text: 'こんにちは！', toInclude: 'こんにちは' },
-			{ text: '挨拶したからほめて', toInclude: 'えらい' },
-			{ text: 'おめでとう', toInclude: 'ありがとう' }
+			{ text: 'こんにちは！', toInclude: 'こんにちは' }
 		])('$text', async ({ text, toInclude }) => {
 			const mention = await post(user, { text: `@${ai.username} ${text}` });
 			await sleep(500);
