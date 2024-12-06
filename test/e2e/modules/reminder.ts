@@ -29,6 +29,6 @@ describe('reminder モジュール', () => {
 		const reminds = await post(user, { text: `@${ai.username} reminds` });
 		await sleep(500);
 		const children = await api('notes/children', { noteId: reminds.id });
-		expect(children.body[0].text).toBe('やること一覧です！\n・おおおおお\n・あああああ');
+		expect(children.body[0].text).toBe('やること一覧\n・おおおおお\n・あああああ');
 	});
 });

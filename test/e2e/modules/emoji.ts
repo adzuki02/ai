@@ -22,6 +22,6 @@ describe('emoji モジュール', () => {
 		const res = await post(user, { text: `@${ai.username} 絵文字` });
 		await sleep(500);
 		const children = await api('notes/children', { noteId: res.id });
-		expect(children.body[0].text).toMatch(/^こんなのはどうですか？→([\u2600-\u27BF]|[\uD83C-\uD83F][\uDC00-\uDFFF]){3}$/);
+		expect(children.body[0].text).toMatch(/^こんなのはどう？→([\u2600-\u27BF]|[\uD83C-\uD83F][\uDC00-\uDFFF]){3}$/);
 	});
 });
