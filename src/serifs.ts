@@ -31,55 +31,7 @@ export default {
 
 		invalidName: '発音が難しい...',
 
-		nadenade: {
-			normal: '😟',
-
-			hate: '🤮'
-		},
-
-		kawaii: {
-			normal: '🤨',
-
-			hate: '🤮'
-		},
-
-		suki: {
-			normal: '😨',
-
-			love: '😟',
-
-			hate: null
-		},
-
-		hug: {
-			normal: '😨',
-
-			love: '😟',
-
-			hate: '🤮'
-		},
-
-		humu: {
-			love: '🥴',
-
-			normal: '🤨',
-
-			hate: '🤨'
-		},
-
-		batou: {
-			love: '🥴',
-
-			normal: '🤨',
-
-			hate: '🤨'
-		},
-
-		itai: ['🏥', '🚑', '💉', '🩹'],
-
-		ote: '🤨',
-
-		shutdown: '🤨',
+		ote: '馬鹿にしないで',
 
 		transferNeedDm: '了解、それはDMで話そう',
 

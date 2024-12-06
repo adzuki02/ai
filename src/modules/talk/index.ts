@@ -118,7 +118,7 @@ export default class extends Module {
 	}
 
 	@bindThis
-	private nadenade(msg: Message): boolean {
+	private nadenade(msg: Message): boolean | HandlerResult {
 		if (!msg.includes(['なでなで'])) return false;
 
 		//#region 1日に1回だけ親愛度を上げる(嫌われてない場合のみ)
@@ -136,99 +136,63 @@ export default class extends Module {
 		}
 		//#endregion
 
-		msg.reply(getSerif(
-			msg.friend.love <= -1 ? serifs.core.nadenade.hate :
-			serifs.core.nadenade.normal
-		));
-
-		return true;
+		return {
+			reaction: msg.friend.love <= -1 ? '🤮' : '😟'
+		};
 	}
 
 	@bindThis
-	private kawaii(msg: Message): boolean {
+	private kawaii(msg: Message): boolean | HandlerResult {
 		if (!msg.includes(['かわいい', '可愛い'])) return false;
 
-		msg.reply(getSerif(
-			msg.friend.love <= -3 ? serifs.core.kawaii.hate :
-			serifs.core.kawaii.normal));
-
-		return true;
+		return {
+			reaction: msg.friend.love <= -3 ? '🤮' : msg.friend.love <= 2 ? '😟' : '🙂'
+		};
 	}
 
 	@bindThis
-	private suki(msg: Message): boolean {
+	private suki(msg: Message): boolean | HandlerResult {
 		if (!msg.or(['好き', 'すき'])) return false;
 
-		msg.reply(
-			msg.friend.love >= 5 ? (msg.friend.name ? serifs.core.suki.love : serifs.core.suki.normal) :
-			msg.friend.love <= -3 ? serifs.core.suki.hate :
-			serifs.core.suki.normal);
-
-		return true;
+		return {
+			reaction: msg.friend.love >= 5 ? '🙂' : msg.friend.love >= 2 ? '😅' : msg.friend.love >= -1 ? '😟' : '😨'
+		};
 	}
 
 	@bindThis
-	private hug(msg: Message): boolean {
+	private hug(msg: Message): boolean | HandlerResult {
 		if (!msg.or(['ぎゅ', 'むぎゅ', /^はぐ(し(て|よ|よう)?)?$/])) return false;
 
-		//#region 前のハグから1分経ってない場合は返信しない
-		// これは、「ハグ」と言って「ぎゅー」と返信したとき、相手が
-		// それに対してさらに「ぎゅー」と返信するケースがあったため。
-		// そうするとその「ぎゅー」に対してもマッチするため、また
-		// 藍がそれに返信してしまうことになり、少し不自然になる。
-		// これを防ぐために前にハグしてから少し時間が経っていないと
-		// 返信しないようにする
-		const now = Date.now();
-
-		const data = msg.friend.getPerModulesData(this);
-
-		if (typeof data.lastHuggedAt === 'number') {
-			if (now - data.lastHuggedAt < (1000 * 60)) return true;
-		}
-
-		data.lastHuggedAt = now;
-		msg.friend.setPerModulesData(this, data);
-		//#endregion
-
-		msg.reply(
-			msg.friend.love >= 5 ? serifs.core.hug.love :
-			msg.friend.love <= -3 ? serifs.core.hug.hate :
-			serifs.core.hug.normal);
-
-		return true;
+		return {
+			reaction: msg.friend.love >= 5 ? '🙂' : msg.friend.love >= 2 ? '😅' : msg.friend.love >= -1 ? '😟' : '😨'
+		};
 	}
 
 	@bindThis
-	private humu(msg: Message): boolean {
+	private humu(msg: Message): boolean | HandlerResult {
 		if (!msg.includes(['踏んで'])) return false;
 
-		msg.reply(
-			msg.friend.love >= 5 ? serifs.core.humu.love :
-			msg.friend.love <= -3 ? serifs.core.humu.hate :
-			serifs.core.humu.normal);
-
-		return true;
+		return {
+			reaction: msg.friend.love >= 5 ? '🥴' : '🤨'
+		};
 	}
 
 	@bindThis
-	private batou(msg: Message): boolean {
+	private batou(msg: Message): boolean | HandlerResult {
 		if (!msg.includes(['罵倒して', '罵って'])) return false;
 
-		msg.reply(
-			msg.friend.love >= 5 ? serifs.core.batou.love :
-			msg.friend.love <= -5 ? serifs.core.batou.hate :
-			serifs.core.batou.normal);
-
-		return true;
+		return {
+			reaction: msg.friend.love >= 5 ? '🥴' : '🤨'
+		};
 	}
 
 	@bindThis
-	private itai(msg: Message): boolean {
+	private itai(msg: Message): boolean | HandlerResult {
 		if (!msg.or(['痛い', 'いたい']) && !msg.extractedText.endsWith('痛い')) return false;
 
-		msg.reply(getSerif(serifs.core.itai));
-
-		return true;
+		return {
+			reaction: ['🏥', '🚑', '💉', '🩹'][Math.floor(Math.random() * 4)]
+		};
 	}
 
 	@bindThis
@@ -266,10 +230,8 @@ export default class extends Module {
 	private shutdown(msg: Message): boolean | HandlerResult {
 		if (!msg.includes(['shutdown'])) return false;
 
-		msg.reply(serifs.core.shutdown);
-
 		return {
-			reaction: 'confused'
+			reaction: '🤨'
 		};
 	}
 }
