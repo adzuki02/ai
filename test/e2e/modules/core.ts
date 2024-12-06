@@ -26,26 +26,26 @@ describe('core モジュール', () => {
 		const res = await post(user, { text: `@${ai.username} 引っ越し` });
 		await sleep(500);
 		const children = await api('notes/children', { noteId: res.id });
-		expect(children.body[0].text).toMatch(/^わかりました。\n合言葉は「(.+)」です！$/);
+		expect(children.body[0].text).toMatch(/^了解。\n合言葉は「(.+)」$/);
 
-		const code = children.body[0].text!.match(/^わかりました。\n合言葉は「(.+)」です！$/)![1];
+		const code = children.body[0].text!.match(/^了解。\n合言葉は「(.+)」$/)![1];
 
 		const transferRes = await post(user2, { text: `@${ai.username} 「${code}」` });
 		await sleep(500);
 		const transferChildren = await api('notes/children', { noteId: transferRes.id });
-		expect(transferChildren.body[0].text?.includes('おかえりなさい')).toBe(true);
+		expect(transferChildren.body[0].text?.includes('ん...おかえり')).toBe(true);
 	});
 
 	test('setName', async () => {
 		const res = await post(user, { text: `@${ai.username} あああああって呼んで` });
 		await sleep(500);
 		const children = await api('notes/children', { noteId: res.id });
-		expect(children.body[0].text).toBe('さん付けした方がいいですか？');
+		expect(children.body[0].text).toBe('さん付けした方がいい？');
 
 		const yesNo = await post(user, { replyId: children.body[0].id, text: 'はい' });
 		await sleep(500);
 		const yesNoChildren = await api('notes/children', { noteId: yesNo.id });
-		expect(yesNoChildren.body[0].text).toBe('わかりました。これからはあああああさんとお呼びしますね！');
+		expect(yesNoChildren.body[0].text).toBe('了解。これからはあああああさんって呼ぶよ');
 
 		const greet = await post(user, { text: `@${ai.username} こんにちは` });
 		await sleep(500);

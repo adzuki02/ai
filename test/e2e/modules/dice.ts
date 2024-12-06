@@ -20,8 +20,8 @@ describe('dice モジュール', () => {
 
 	describe('メンションに反応する', async () => {
 		test.each([
-			{ text: '1d6', match: /^\d です！$/ },
-			{ text: '3d6', match: /^\d \d \d です！$/ }
+			{ text: '1d6', match: /^\d だ$/ },
+			{ text: '3d6', match: /^\d \d \d だ$/ }
 		])('$text', async ({ text, match }) => {
 			const note = await post(user, { text: `@${ai.username} ${text}` });
 			await sleep(500);

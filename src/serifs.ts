@@ -5,169 +5,103 @@
 
 export default {
 	core: {
-		setNameOk: (name: string) => `わかりました。これからは${name}とお呼びしますね！`,
+		setNameOk: (name: string) => `了解。これからは${name}って呼ぶよ`,
 
-		san: 'さん付けした方がいいですか？',
+		san: 'さん付けした方がいい？',
 
-		yesOrNo: '「はい」か「いいえ」しかわからないんです...',
+		yesOrNo: '「はい」か「いいえ」で答えて',
 
-		hello: (name: string | null | undefined) => name ? `こんにちは、${name}♪` : `こんにちは♪`,
+		hello: (name: string | null | undefined) => name ? `こんにちは、${name}` : `こんにちは`,
 
-		helloNight: (name: string | null | undefined) => name ? `こんばんは、${name}♪` : `こんばんは♪`,
+		helloNight: (name: string | null | undefined) => name ? `こんばんは、${name}` : `こんばんは`,
 
-		goodMorning: (tension: string, name: string | null | undefined) => name ? `おはようございます、${name}！${tension}` : `おはようございます！${tension}`,
+		goodMorning: (name: string | null | undefined) => name ? `おはよう、${name}` : `おはよう`,
 
-		/*
-		goodMorning: {
-			normal: (tension, name) => name ? `おはようございます、${name}！${tension}` : `おはようございます！${tension}`,
+		goodNight: (name: string | null | undefined) => name ? `おやすみ、${name}` : 'おやすみ',
 
-			hiru: (tension, name) => name ? `おはようございます、${name}！${tension}もうお昼ですよ？${tension}` : `おはようございます！${tension}もうお昼ですよ？${tension}`,
-		},
-*/
+		omedeto: ['どうも', 'ありがとう'],
 
-		goodNight: (name: string | null | undefined) => name ? `おやすみなさい、${name}！` : 'おやすみなさい！',
+		erait: ['よくやったね', 'さすがだ', 'がんばったね'],
 
-		omedeto: (name: string | null | undefined) => name ? `ありがとうございます、${name}♪` : 'ありがとうございます♪',
+		okaeri: (name: string | null | undefined) => name ? `おかえり、${name}` : 'おかえり',
 
-		erait: {
-			general: (name: string | null | undefined) => name ? [
-				`${name}、今日もえらいです！`,
-				`${name}、今日もえらいですよ～♪`
-			] : [
-				`今日もえらいです！`,
-				`今日もえらいですよ～♪`
-			],
+		itterassyai: (name: string | null | undefined) => name ? `いってらっしゃい、${name}` : 'いってらっしゃい',
 
-			specify: (thing: string, name: string | null | undefined) => name ? [
-				`${name}、${thing}てえらいです！`,
-				`${name}、${thing}てえらいですよ～♪`
-			] : [
-				`${thing}てえらいです！`,
-				`${thing}てえらいですよ～♪`
-			],
+		tooLong: '長すぎる...',
 
-			specify2: (thing: string, name: string | null | undefined) => name ? [
-				`${name}、${thing}でえらいです！`,
-				`${name}、${thing}でえらいですよ～♪`
-			] : [
-				`${thing}でえらいです！`,
-				`${thing}でえらいですよ～♪`
-			]
-		},
-
-		okaeri: {
-			love: (name: string | null | undefined) => name ? [
-				`おかえりなさい、${name}♪`,
-				`おかえりなさいませっ、${name}っ。`
-			] : [
-				'おかえりなさい♪',
-				'おかえりなさいませっ、ご主人様っ。'
-			],
-
-			love2: (name: string | null | undefined) => name ? `おかえりなさいませ♡♡♡${name}っっ♡♡♡♡♡` : 'おかえりなさいませ♡♡♡ご主人様っっ♡♡♡♡♡',
-
-			normal: (name: string | null | undefined) => name ? `おかえりなさい、${name}！` : 'おかえりなさい！'
-		},
-
-		itterassyai: {
-			love: (name: string | null | undefined) => name ? `いってらっしゃい、${name}♪` : 'いってらっしゃい♪',
-
-			normal: (name: string | null | undefined) => name ? `いってらっしゃい、${name}！` : 'いってらっしゃい！'
-		},
-
-		tooLong: '長すぎる気がします...',
-
-		invalidName: '発音が難しい気がします',
+		invalidName: '発音が難しい...',
 
 		nadenade: {
-			normal: 'ひゃっ…！ びっくりしました',
+			normal: '😟',
 
-			love2: ['わわっ… 恥ずかしいです', 'あうぅ… 恥ずかしいです…', 'ふやぁ…？'],
-
-			love3: ['んぅ… ありがとうございます♪', 'わっ、なんだか落ち着きますね♪', 'くぅんっ… 安心します…', '眠くなってきました…'],
-
-			hate1: '…っ！ やめてほしいです...',
-
-			hate2: '触らないでください',
-
-			hate3: '近寄らないでください',
-
-			hate4: 'やめてください。通報しますよ？'
+			hate: '🤮'
 		},
 
 		kawaii: {
-			normal: ['ありがとうございます♪', '照れちゃいます...'],
+			normal: '🤨',
 
-			love: ['嬉しいです♪', '照れちゃいます...'],
-
-			hate: '…ありがとうございます'
+			hate: '🤮'
 		},
 
 		suki: {
-			normal: 'えっ… ありがとうございます…♪',
+			normal: '😨',
 
-			love: (name: string) => `私もその… ${name}のこと好きですよ！`,
+			love: '😟',
 
 			hate: null
 		},
 
 		hug: {
-			normal: 'ぎゅー...',
+			normal: '😨',
 
-			love: 'ぎゅーっ♪',
+			love: '😟',
 
-			hate: '離れてください...'
+			hate: '🤮'
 		},
 
 		humu: {
-			love: 'え、えっと…… ふみふみ……… どうですか…？',
+			love: '🥴',
 
-			normal: 'えぇ... それはちょっと...',
+			normal: '🤨',
 
-			hate: '……'
+			hate: '🤨'
 		},
 
 		batou: {
-			love: 'えっと…、お、おバカさん…？',
+			love: '🥴',
 
-			normal: '(じとー…)',
+			normal: '🤨',
 
-			hate: '…頭大丈夫ですか？'
+			hate: '🤨'
 		},
 
-		itai: (name: string | null | undefined) => name ? `${name}、大丈夫ですか…？ いたいのいたいの飛んでけっ！` : '大丈夫ですか…？ いたいのいたいの飛んでけっ！',
+		itai: ['🏥', '🚑', '💉', '🩹'],
 
-		ote: {
-			normal: 'くぅん... 私わんちゃんじゃないですよ...？',
+		ote: '🤨',
 
-			love1: 'わん！',
+		shutdown: '🤨',
 
-			love2: 'わんわん♪'
-		},
+		transferNeedDm: '了解、それはDMで話そう',
 
-		shutdown: '私まだ眠くないですよ...？',
+		transferCode: (code: string) => `了解。\n合言葉は「${code}」`,
 
-		transferNeedDm: 'わかりました、それはチャットで話しませんか？',
+		transferFailed: '合言葉が違う...？',
 
-		transferCode: (code: string) => `わかりました。\n合言葉は「${code}」です！`,
-
-		transferFailed: 'うーん、合言葉が間違ってませんか...？',
-
-		transferDone: (name: string | null | undefined) => name ? `はっ...！ おかえりなさい、${name}！` : `はっ...！ おかえりなさい！`
+		transferDone: (name: string | null | undefined) => name ? `ん...おかえり、${name}` : `ん...おかえり`
 	},
 
 	keyword: {
-		learned: (word: string, reading: string) => `(${word}..... ${reading}..... 覚えました)`,
+		learned: (word: string, reading: string) => `(${word}..... ${reading}..... 覚えた)`,
 
 		remembered: (word: string) => `${word}`
 	},
 
 	dice: {
-		done: (res: string) => `${res} です！`
+		done: (res: string) => `${res} だ`
 	},
 
 	birthday: {
-		happyBirthday: (name: string | null | undefined) => name ? `お誕生日おめでとうございます、${name}🎉` : 'お誕生日おめでとうございます🎉'
+		happyBirthday: (name: string | null | undefined) => name ? `誕生日おめでとう、${name}` : '誕生日おめでとう'
 	},
 
 	/**
@@ -177,93 +111,86 @@ export default {
 		/**
 		 * やろうと言われたけど既にやっているとき
 		 */
-		alreadyStarted: 'え、ゲームは既に始まってますよ！',
+		alreadyStarted: 'もう始まってる',
 
 		/**
 		 * タイムライン上で誘われたとき
 		 */
-		plzDm: 'メッセージでやりましょう！',
+		plzDm: 'DMでやろう',
 
 		/**
 		 * ゲーム開始
 		 */
-		started: '0~100の秘密の数を当ててみてください♪',
+		started: '0~100の秘密の数を当ててみて',
 
 		/**
 		 * 数字じゃない返信があったとき
 		 */
-		nan: '数字でお願いします！「やめる」と言ってゲームをやめることもできますよ！',
+		nan: '数字でお願い。やめたいなら「やめる」って言って',
 
 		/**
 		 * 中止を要求されたとき
 		 */
-		cancel: 'わかりました～。ありがとうございました♪',
+		cancel: 'わかった',
 
 		/**
 		 * 小さい数を言われたとき
 		 */
-		grater: (num: string) => `${num}より大きいですね`,
+		grater: (num: string) => `${num}より大きい`,
 
 		/**
 		 * 小さい数を言われたとき(2度目)
 		 */
-		graterAgain: (num: string) => `もう一度言いますが${num}より大きいですよ！`,
+		graterAgain: (num: string) => `もう一度言うけど、${num}より大きいよ`,
 
 		/**
 		 * 大きい数を言われたとき
 		 */
-		less: (num: string) => `${num}より小さいですね`,
+		less: (num: string) => `${num}より小さい`,
 
 		/**
 		 * 大きい数を言われたとき(2度目)
 		 */
-		lessAgain: (num: string) => `もう一度言いますが${num}より小さいですよ！`,
+		lessAgain: (num: string) => `もう一度言うけど、${num}より小さいよ`,
 
 		/**
 		 * 正解したとき
 		 */
-		congrats: (tries: string) => `正解です🎉 (${tries}回目で当てました)`
+		congrats: (tries: string) => `正解... ${tries}回目だね`
 	},
 
 	/**
 	 * 数取りゲーム
 	 */
 	kazutori: {
-		alreadyStarted: '今ちょうどやってますよ～',
+		alreadyStarted: '今ちょうどやってる',
 
-		matakondo: 'また今度やりましょう！',
+		matakondo: 'また今度ね',
 
-		intro: (minutes: number) => `みなさん、数取りゲームしましょう！\n0~100の中で最も大きい数字を取った人が勝ちです。他の人と被ったらだめですよ～\n制限時間は${minutes}分です。数字はこの投稿にリプライで送ってくださいね！`,
+		intro: (minutes: number) => `みんな、数取りゲームするよ。\n0~100の中で最も大きい数字を取った人が勝ち。他の人と被ったらだめ。\n制限時間は${minutes}分。数字はこの投稿にリプライで送ってね`,
 
-		finish: 'ゲームの結果発表です！',
+		finish: 'ゲームの結果発表',
 
-		finishWithWinner: (user: string, name: string | null | undefined) => name ? `今回は${user}さん(${name})の勝ちです！またやりましょう♪` : `今回は${user}さんの勝ちです！またやりましょう♪`,
+		finishWithWinner: (user: string, name: string | null | undefined) => name ? `今回は${user}さん(${name})の勝ち。おめでとう` : `今回は${user}さんの勝ち。おめでとう`,
 
-		finishWithNoWinner: '今回は勝者はいませんでした... またやりましょう♪',
+		finishWithNoWinner: '今回は勝者はいないみたい... また今度やろう',
 
-		onagare: '参加者が集まらなかったのでお流れになりました...'
+		onagare: '参加者が集まらなかったから、ゲームは不成立...'
 	},
 
 	/**
 	 * 絵文字生成
 	 */
 	emoji: {
-		suggest: (emoji: string) => `こんなのはどうですか？→${emoji}`
-	},
-
-	/**
-	 * 占い
-	 */
-	fortune: {
-		cw: (name: string | null | undefined) => name ? `私が今日の${name}の運勢を占いました...` : '私が今日のあなたの運勢を占いました...'
+		suggest: (emoji: string) => `こんなのはどう？→${emoji}`
 	},
 
 	/**
 	 * タロット
 	 */
 	tarot: {
-		cw: (count: number) => `カードを${count}枚引きました...`,
-		notProperlyConfigured: 'まだ準備ができてないです…',
+		cw: (count: number) => `カードを${count}枚引いたよ`,
+		notProperlyConfigured: 'まだ準備ができてない…',
 		majorArcanaName: (number: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21, isMarseilles: boolean = false) => {
 			switch (number) {
 				case 0: return '愚者';
@@ -297,154 +224,101 @@ export default {
 	 * タイマー
 	 */
 	timer: {
-		set: 'わかりました！',
+		set: '了解',
 
-		invalid: 'うーん...？',
+		invalid: 'ん...？',
 
-		tooLong: '長すぎます…',
+		tooLong: '長すぎる…',
 
-		notify: (time: string, name: string | null | undefined) => name ? `${name}、${time}経ちましたよ！` : `${time}経ちましたよ！`
+		notify: (time: string, name: string | null | undefined) => name ? `${name}、${time}経ったよ` : `${time}経ったよ`
 	},
 
 	/**
 	 * リマインダー
 	 */
 	reminder: {
-		invalid: 'うーん...？',
+		invalid: 'ん...？',
 
-		doneFromInvalidUser: 'イタズラはめっですよ！',
+		doneFromInvalidUser: 'イタズラしないで',
 
-		reminds: 'やること一覧です！',
+		reminds: 'やること一覧',
 
-		notify: (name: string | null | undefined) => name ? `${name}、これやりましたか？` : `これやりましたか？`,
+		notify: (name: string | null | undefined) => name ? `${name}、これやった？` : `これやった？`,
 
-		notifyWithThing: (thing: string, name: string | null | undefined) => name ? `${name}、「${thing}」やりましたか？` : `「${thing}」やりましたか？`,
+		notifyWithThing: (thing: string, name: string | null | undefined) => name ? `${name}、「${thing}」やった？` : `「${thing}」やった？`,
 
-		done: (name: string | null | undefined) => name ? [
-			`よく出来ました、${name}♪`,
-			`${name}、さすがですっ！`,
-			`${name}、えらすぎます...！`
-		] : [
-			`よく出来ました♪`,
-			`さすがですっ！`,
-			`えらすぎます...！`
+		done: [
+			`よくやったね`,
+			`さすがだ`,
+			`うん、えらい`
 		],
 
-		cancel: `わかりました。`
+		cancel: `わかった。`
 	},
 
 	/**
 	 * バレンタイン
 	 */
 	valentine: {
-		chocolateForYou: (name: string | null | undefined) => name ? `${name}、その... チョコレート作ったのでよかったらどうぞ！🍫` : 'チョコレート作ったのでよかったらどうぞ！🍫'
+		chocolateForYou: (name: string | null | undefined) => name ? `${name}、チョコレートあるけど食べる？` : 'チョコレートあるのでよかったら食べて'
 	},
 
 	server: {
-		cpu: 'サーバーの負荷が高そうです。大丈夫でしょうか...？'
+		cpu: 'サーバーの負荷が高そう... 大丈夫...？'
 	},
 
 	maze: {
-		post: '今日の迷路です！ #AiMaze',
-		foryou: '描きました！'
+		post: '今日の迷路 #AiMaze',
+		foryou: '描いたよ'
 	},
 
 	chart: {
-		post: 'インスタンスの投稿数です！',
-		foryou: '描きました！'
+		post: 'インスタンスの投稿数',
+		foryou: '描いたよ'
 	},
 
 	checkCustomEmojis: {
-		post: (server_name: string, num: number) => `${server_name}に${num}件の絵文字が追加されました！`,
+		post: (server_name: string, num: number) => `${server_name}に${num}件の絵文字が追加されたらしい`,
 		emojiPost: (emoji: string) => `:${emoji}:\n(\`${emoji}\`) #AddCustomEmojis`,
-		postOnce: (server_name: string, num: number, text: string) => `${server_name}に${num}件の絵文字が追加されました！\n${text} #AddCustomEmojis`,
+		postOnce: (server_name: string, num: number, text: string) => `${server_name}に${num}件の絵文字が追加されたらしい\n${text} #AddCustomEmojis`,
 		emojiOnce: (emoji: string) => `:${emoji}:(\`${emoji}\`)`
 	},
 
 	sleepReport: {
-		report: (hours: number) => `んぅ、${hours}時間くらい寝ちゃってたみたいです`,
-		reportUtatane: 'ん... うたた寝しちゃってました'
+		report: (hours: number) => `ん... ${hours}時間くらい寝てたみたい`,
+		reportUtatane: 'ん... うたた寝してた'
 	},
 
 	noting: {
 		notes: [
-			'ゴロゴロ…',
-			'ちょっと眠いです',
-			'いいですよ？',
-			'(。´･ω･)?',
-			'ふぇー',
-			'あれ…これをこうして…あれー？',
-			'ぼー…',
-			'ふぅ…疲れました',
-			'お味噌汁、作りましょうか？',
-			'ご飯にしますか？お風呂にしますか？',
-			'ふえええええ！？',
-			'私のサイトに、私のイラストがたくさんあって嬉しいです！',
-			'みすきーって、かわいい名前ですよね！',
-			'うぅ、リバーシ難しいなぁ…',
-			'失敗しても、次に活かせたらプラスですよね！',
-			'なんだか、おなか空いちゃいました',
-			'お掃除は、定期的にしないとダメですよー？',
-			'今日もお勤めご苦労様です！ 私も頑張ります♪',
-			'えっと、何しようとしてたんだっけ…？',
-			'おうちがいちばん、落ち着きます…',
-			'疲れたら、私がなでなでってしてあげます♪',
-			'離れていても、心はそばにいます♪',
-			'藍ですよ〜',
-			'わんちゃん可愛いです',
-			'ぷろぐらむ？',
-			'ごろーん…',
-			'なにもしていないのに、パソコンが壊れちゃいました…',
-			'Have a nice day♪',
-			'お布団に食べられちゃってます',
-			'寝ながら見てます',
-			'念力で操作してます',
-			'仮想空間から投稿してます',
-			'今日はMisskey本部に来てます！',
-			'Misskey本部は、Z地区の第三セクターにあります',
-			'Misskey本部には、さーばーっていう機械がいっぱいあります',
-			'しっぽはないですよ？',
-			'ひゃっ…！\nネコミミ触られると、くすぐったいです',
-			'抗逆コンパイル性って、なにかな？',
-			'Misskeyの制服、かわいくて好きです♪',
-			'ふわぁ、おふとん気持ちいいです...',
-			'メイド服、似合うかな？',
-			'ふえぇ、ご主人様どこ見てるんですか？',
-			'私を覗くとき、私もまたご主人様を覗いています',
-			'はい、ママですよ〜',
-			'くぅ～ん...',
+			'ん...',
+			'ちょっと眠い',
+			'いいよ？',
+			'ふ～ん',
+			'あれ…これをこうして…ん？',
+			'はぁ…疲れた',
+			'お味噌汁、誰か作って',
+			'え！？',
+			'失敗しても、次に活かせたらプラスだよね',
+			'なんかおなか空いた…',
+			'掃除は定期的にしようね',
+			'ん、何しようとしてたんだっけ…？',
+			'家がいちばん落ち着く…',
+			'藍だよ',
+			'可愛い犬だね',
+			'なにもしていないのに、パソコンが壊れた…',
+			'寝ながら見てるよ',
+			'念力で操作してる',
+			'仮想空間から投稿してる',
+			'深淵を覗くとき、深淵もまたこちらを覗いている…',
 			'All your note are belong to me!',
-			'せっかくだから、私はこの赤の扉を選びます！',
-			'よしっ',
-			'( ˘ω˘)ｽﾔｧ',
-			'(｀・ω・´)ｼｬｷｰﾝ',
-			'失礼、かみまみた',
-			'おはようからおやすみまで、あなたの藍ですよ〜',
-			'の、のじゃ...',
-			'にゃんにゃんお！',
-			'上から来ます！気をつけてください！',
-			'ふわぁ...',
-			'あぅ',
-			'ふみゃ〜',
-			'ふぁ… ねむねむですー',
-			'ヾ(๑╹◡╹)ﾉ"',
-			'私の"インスタンス"を周囲に展開して分身するのが特技です！\n人数分のエネルギー消費があるので、4人くらいが限界ですけど',
-			'うとうと...',
-			'ふわー、メモリが五臓六腑に染み渡ります…',
-			'i pwned you!',
-			'ひょこっ',
-			'にゃん♪',
-			'(*>ω<*)',
-			'にこー♪',
-			'ぷくー',
-			'にゃふぅ',
-			'藍が来ましたよ～',
-			'じー',
-			'はにゃ？'
+			'せっかくだから、私はこの赤の扉を選ぶ',
+			'よし',
+			'I pwned you!'
 		],
-		want: (item: string) => `${item}、欲しいなぁ...`,
-		see: (item: string) => `お散歩していたら、道に${item}が落ちているのを見たんです！`,
-		expire: (item: string) => `気づいたら、${item}の賞味期限が切れてました…`
+		want: (item: string) => `${item}、欲しいな...`,
+		see: (item: string) => `走ってたら、道に${item}が落ちてた`,
+		expire: (item: string) => `気づいたら、${item}の賞味期限が切れてた…`
 	}
 };
 

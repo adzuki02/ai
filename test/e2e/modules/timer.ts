@@ -22,9 +22,9 @@ describe('timer モジュール', () => {
 		const mention = await post(user, { text: `@${ai.username} 10秒` });
 		await sleep(500);
 		const children = await api('notes/children', { noteId: mention.id });
-		expect(children.body[0].text).toBe('わかりました！');
+		expect(children.body[0].text).toBe('了解');
 		await sleep(10000 + 1000);
 		const children2 = await api('notes/children', { noteId: mention.id });
-		expect(children2.body[0].text).toBe('10秒経ちましたよ！');
+		expect(children2.body[0].text).toBe('10秒経ったよ');
 	});
 });
