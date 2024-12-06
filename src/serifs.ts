@@ -17,14 +17,6 @@ export default {
 
 		goodMorning: (tension: string, name: string | null | undefined) => name ? `おはようございます、${name}！${tension}` : `おはようございます！${tension}`,
 
-		/*
-		goodMorning: {
-			normal: (tension, name) => name ? `おはようございます、${name}！${tension}` : `おはようございます！${tension}`,
-
-			hiru: (tension, name) => name ? `おはようございます、${name}！${tension}もうお昼ですよ？${tension}` : `おはようございます！${tension}もうお昼ですよ？${tension}`,
-		},
-*/
-
 		goodNight: (name: string | null | undefined) => name ? `おやすみなさい、${name}！` : 'おやすみなさい！',
 
 		omedeto: (name: string | null | undefined) => name ? `ありがとうございます、${name}♪` : 'ありがとうございます♪',
@@ -55,97 +47,63 @@ export default {
 			]
 		},
 
-		okaeri: {
-			love: (name: string | null | undefined) => name ? [
-				`おかえりなさい、${name}♪`,
-				`おかえりなさいませっ、${name}っ。`
-			] : [
-				'おかえりなさい♪',
-				'おかえりなさいませっ、ご主人様っ。'
-			],
+		okaeri: (name: string | null | undefined) => name ? `おかえりなさい、${name}！` : 'おかえりなさい！',
 
-			love2: (name: string | null | undefined) => name ? `おかえりなさいませ♡♡♡${name}っっ♡♡♡♡♡` : 'おかえりなさいませ♡♡♡ご主人様っっ♡♡♡♡♡',
-
-			normal: (name: string | null | undefined) => name ? `おかえりなさい、${name}！` : 'おかえりなさい！'
-		},
-
-		itterassyai: {
-			love: (name: string | null | undefined) => name ? `いってらっしゃい、${name}♪` : 'いってらっしゃい♪',
-
-			normal: (name: string | null | undefined) => name ? `いってらっしゃい、${name}！` : 'いってらっしゃい！'
-		},
+		itterassyai: (name: string | null | undefined) => name ? `いってらっしゃい、${name}！` : 'いってらっしゃい！',
 
 		tooLong: '長すぎる気がします...',
 
 		invalidName: '発音が難しい気がします',
 
 		nadenade: {
-			normal: 'ひゃっ…！ びっくりしました',
+			normal: '😟',
 
-			love2: ['わわっ… 恥ずかしいです', 'あうぅ… 恥ずかしいです…', 'ふやぁ…？'],
-
-			love3: ['んぅ… ありがとうございます♪', 'わっ、なんだか落ち着きますね♪', 'くぅんっ… 安心します…', '眠くなってきました…'],
-
-			hate1: '…っ！ やめてほしいです...',
-
-			hate2: '触らないでください',
-
-			hate3: '近寄らないでください',
-
-			hate4: 'やめてください。通報しますよ？'
+			hate1: '🤮'
 		},
 
 		kawaii: {
-			normal: ['ありがとうございます♪', '照れちゃいます...'],
+			normal: '🤨',
 
-			love: ['嬉しいです♪', '照れちゃいます...'],
-
-			hate: '…ありがとうございます'
+			hate: '🤮'
 		},
 
 		suki: {
-			normal: 'えっ… ありがとうございます…♪',
+			normal: '😨',
 
-			love: (name: string) => `私もその… ${name}のこと好きですよ！`,
+			love: '😟',
 
 			hate: null
 		},
 
 		hug: {
-			normal: 'ぎゅー...',
+			normal: '😨',
 
-			love: 'ぎゅーっ♪',
+			love: '😟',
 
-			hate: '離れてください...'
+			hate: '🤮'
 		},
 
 		humu: {
-			love: 'え、えっと…… ふみふみ……… どうですか…？',
+			love: '🥴',
 
-			normal: 'えぇ... それはちょっと...',
+			normal: '🤨',
 
-			hate: '……'
+			hate: '🤨'
 		},
 
 		batou: {
-			love: 'えっと…、お、おバカさん…？',
+			love: '🥴',
 
-			normal: '(じとー…)',
+			normal: '🤨',
 
-			hate: '…頭大丈夫ですか？'
+			hate: '🤨'
 		},
 
-		itai: (name: string | null | undefined) => name ? `${name}、大丈夫ですか…？ いたいのいたいの飛んでけっ！` : '大丈夫ですか…？ いたいのいたいの飛んでけっ！',
+		itai: ['🏥', '🚑', '💉', '🩹'],
 
-		ote: {
-			normal: 'くぅん... 私わんちゃんじゃないですよ...？',
+		ote: '🤨',
 
-			love1: 'わん！',
-
-			love2: 'わんわん♪'
-		},
-
-		shutdown: '私まだ眠くないですよ...？',
+		shutdown: '🤨',
 
 		transferNeedDm: 'わかりました、それはチャットで話しませんか？',
 
@@ -249,13 +207,6 @@ export default {
 	 */
 	emoji: {
 		suggest: (emoji: string) => `こんなのはどうですか？→${emoji}`
-	},
-
-	/**
-	 * 占い
-	 */
-	fortune: {
-		cw: (name: string | null | undefined) => name ? `私が今日の${name}の運勢を占いました...` : '私が今日のあなたの運勢を占いました...'
 	},
 
 	/**
