@@ -17,6 +17,7 @@ export type Config = {
 	mecabDic?: string;
 	memoryDir?: string;
 	tarot?: {
+		blank: string;
 		major: string[];
 	};
 };
