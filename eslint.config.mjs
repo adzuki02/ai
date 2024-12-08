@@ -35,6 +35,7 @@ export default [
 				ignoreRestSiblings: true
 			}],
 			'@stylistic/indent': ['error', 'tab'],
+			'@stylistic/indent-binary-ops': 'warn',
 			'@stylistic/no-tabs': ['error', {
 				allowIndentationTabs: true
 			}],
@@ -48,6 +49,10 @@ export default [
 			'@stylistic/arrow-parens': ['error', 'as-needed'],
 			'@stylistic/spaced-comment': ['error', 'always', {
 				markers: ['#region', '#endregion']
+			}],
+			'no-irregular-whitespace': ['error', {
+				skipStrings: true,
+				skipTemplates: true
 			}]
 		}
 	},
